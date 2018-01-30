@@ -1,5 +1,5 @@
 # forline
-A small utility to execute python instructions for each line of text files. Inspired by awk and the perl -n option missing in python. Based on http://code.activestate.com/recipes/437932/ with additional options for heading code (-b, which can be used for imports), trailing code (-e) and separators (-s). As in the original script, the variables line, words[] and num have the the following meaning:
+A small utility to execute python instructions for each line of text files. Inspired by awk and the perl -n option missing in python. Based on http://code.activestate.com/recipes/437932/ with additional options for heading code (-b, which can be used for imports), trailing code (-e) and separators (-s). As in the original script, the variables line, words[] and num have the following meaning:
 
 * line refers to the current line (without carriage return),
 * words[n] refers to the nth word (starting from 0). The line is splitted with spaces or the separator given with the -s option
