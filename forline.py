@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 """
-$ forline.py [-b head code] [-e tail code] [-s sep] <body code> [filein]
 $ cat filein | forline.py [-b head code] [-e tail code] [-s sep] <body code>
 """
 
@@ -19,13 +18,13 @@ except:
 
 head = opts['-b'] if '-b' in opts else 'pass'
 tail = opts['-e'] if '-e' in opts else 'pass'
-body = args[0] if args and args[0].strip() else 'pass'
+body = '\n    '.join(args)
+body = body if body.strip() else 'pass'
 sep = opts['-s'] if '-s' in opts else None
-filein = open(args[1]) if args[1:] else sys.stdin
 
 SCRIPT = """\
 %s
-for num, line in enumerate(filein, 1):
+for num, line in enumerate(sys.stdin, 1):
     line = line[:-1]
     words = line.strip().split(%s)
     %s
@@ -33,5 +32,4 @@ for num, line in enumerate(filein, 1):
 """ 
 script = SCRIPT % (head, sep, body, tail)
 
-codeobj = compile(script, 'command', 'exec')
-eval(codeobj, globals(), locals())
+eval(compile(script, 'command', 'exec'), globals(), locals())
