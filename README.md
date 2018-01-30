@@ -9,7 +9,7 @@ The following example removes duplicated lines.
 
     $ cat exemple | forline.py -b "lines = set()" "if line not in lines: lines.add(line); print(line)"
     
-The following example sums the first word matching an integer in each line.
+The following example sums the first word matching an integer in each line. Note that the body instructions must be separated in two strings as an assgnment cannot be separated from a if with a semicolon. Refer to the definition of compound statements at  https://docs.python.org/2/reference/compound_stmts.html.
 
     $ cat exemple | forline.py -b "import re; s = 0" -e "print(s)" "m = re.search(r'\b(\d+)\b', line)" "if m: s += m.group(1)"
     
