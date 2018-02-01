@@ -15,4 +15,4 @@ The following example sums the first word matching an integer in each line. Note
     
 Syntax, error and behaviour
 
-forline is compatible python 2 and 3 and uses syntax from python 3 (print and division). An additional -t option enables to trace the generated script. Using the generated script is strictly equivalent than using forline command line.
+forline is compatible python 2 and 3 and uses syntax from python 3 (print and division). An additional -t option enables to trace the generated script. Using the generated script is strictly equivalent than using forline command line. As a consequence, all questions regarding syntax or execution errors may be analyzed by running the generated script.
