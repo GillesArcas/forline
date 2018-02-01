@@ -13,3 +13,6 @@ The following example sums the first word matching an integer in each line. Note
 
     $ cat exemple | forline.py -b "import re; s = 0" -e "print(s)" "m = re.search(r'\b(\d+)\b', line)" "if m: s += int(m.group(1))"
     
+Syntax, error and behaviour
+
+forline is compatible python 2 and 3 and uses syntax from python 3 (print and division). An additional -t option enables to trace the generated script. Using the generated script is strictly equivalent than using forline command line.
