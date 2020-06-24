@@ -9,9 +9,10 @@ The first example emulates `head -10`:
 
     $ cat exemple | forline "if num <= 10: print(line)"
 
-A second instruction may be added to the if body:
+Several instructions may be given in the body, either by using the semicolon separator or by using several body arguments:
 
     $ cat exemple | forline "if num <= 10: print(num); print(line)"
+    $ cat exemple | forline "if num <= 10: print(num)" "print(line)"
 
 Printing then testing to exit the loop must be written using two strings. Python syntax does not accept a simple statement followed by a compound statement in the same line. Refer to the definition of statements at https://docs.python.org/2/reference/compound_stmts.html. This is the only difficulty to keep in mind when using forline.
 
@@ -24,11 +25,11 @@ Emulating `tail -10` illustrates the use of heading and trailing code sections.
 The next example removes duplicated lines.
 
     $ cat exemple | forline -b "lines = set()" "if line not in lines: lines.add(line); print(line)"
-    
+
 The next example sums the first word matching an integer in each line. 
 
     $ cat exemple | forline -b "import re; s = 0" -e "print(s)" "m = re.search(r'\b(\d+)\b', line)" "if m: s += int(m.group(1))"
-    
+
 ##### Installation
 
 Download the zip file, unzip and and key `pip install .` in forline directory.
