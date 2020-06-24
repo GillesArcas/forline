@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='forline',
     version='1.0',
-    license='MIT'
+    license='MIT',
     packages=['forline'],
     url = 'https://github.com/GillesArcas/forline',
     author = 'Gilles Arcas',
