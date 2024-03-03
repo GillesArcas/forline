@@ -10,12 +10,12 @@ import getopt
 
 
 SCRIPT = """\
-from __future__ import print_function, division
 import sys
+import re
 %s
 for num, line in enumerate(sys.stdin, 1):
-    line = line[:-1]
-    words = line.strip().split(%s)
+    line = line.strip()
+    words = line.split(%s)
     %s
 %s
 """
@@ -41,6 +41,6 @@ def main():
     else:
         eval(compile(script, 'command', 'exec'), globals(), locals())
 
-    
+
 if __name__ == '__main__':
     main()

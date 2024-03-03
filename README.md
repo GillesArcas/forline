@@ -28,7 +28,9 @@ The next example removes duplicated lines.
 
 The next example sums the first word matching an integer in each line. 
 
-    $ cat exemple | forline -b "import re; s = 0" -e "print(s)" "m = re.search(r'\b(\d+)\b', line)" "if m: s += int(m.group(1))"
+    $ cat exemple | forline -b "s = 0" -e "print(s)" "m = re.search(r'\b(\d+)\b', line)" "if m: s += int(m.group(1))"
+
+Note `re` module is always imported (i.e. `import re` in starting argument is implicit).
 
 ##### Installation
 
@@ -36,4 +38,4 @@ Download the zip file, unzip and and key `pip install .` in forline directory.
 
 ##### Syntax, error and behaviour
 
-forline is compatible with python 2 and 3 and uses syntax from python 3 (print and division). An additional -t option enables to trace the generated script. Using the generated script is strictly equivalent than using forline command line. As a consequence, all questions regarding syntax or execution errors may be answered by running the generated script.
+forline uses python 3 and does not support  python 2. An additional -t option enables to trace the generated script. Using the generated script is strictly equivalent than using forline command line. As a consequence, all questions regarding syntax or execution errors may be answered by running the generated script.
