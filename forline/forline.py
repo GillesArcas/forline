@@ -14,7 +14,7 @@ import sys
 import re
 %s
 for num, line in enumerate(sys.stdin, 1):
-    line = line.strip()
+    line = line.rstrip('\\r\\n')
     words = line.split(%s)
     %s
 %s
